@@ -6,11 +6,11 @@
 /*   By: dramos-p <dramos-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 00:01:56 by dramos-p          #+#    #+#             */
-/*   Updated: 2021/05/16 16:38:21 by dramos-p         ###   ########.fr       */
+/*   Updated: 2021/05/18 21:57:43 by dramos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "libft.h"
 
 void *ft_memccpy(void *restrict dst, const void *restrict src, int c, size_t n)
 {

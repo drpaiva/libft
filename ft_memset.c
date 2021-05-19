@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_menset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dramos-p <dramos-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/12 19:38:46 by dramos-p          #+#    #+#             */
-/*   Updated: 2021/05/18 22:01:13 by dramos-p         ###   ########.fr       */
+/*   Created: 2021/05/12 13:26:09 by dramos-p          #+#    #+#             */
+/*   Updated: 2021/05/18 22:01:40 by dramos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+void	*ft_memset(void *ptr, int value, size_t num)
 {
-	size_t	i;
+	int	i;
 
-	i = n;
-	while (n)
+	i = num;
+	while (num)
 	{
-		((char *)s)[i - n] = '\0';
-		n--;
+		((char *)ptr)[i - num] = value;
+		num--;
 	}
+	return (ptr);
 }
