@@ -6,7 +6,7 @@
 /*   By: dramos-p <dramos-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 20:34:33 by dramos-p          #+#    #+#             */
-/*   Updated: 2021/05/23 12:47:01 by dramos-p         ###   ########.fr       */
+/*   Updated: 2021/05/23 13:04:50 by dramos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
 	size_t	i;
 
-	i = n;
-	while (n)
+	i = 0;
+	while (i < n)
 	{
-		((char *)dest)[i - n] = ((char *)src)[i - n];
-		n--;
+		((char *)dest)[i] = ((char *)src)[i];
+		i++;
 	}
 	return (dest);
 }
