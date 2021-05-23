@@ -6,7 +6,7 @@
 /*   By: dramos-p <dramos-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 06:49:31 by dramos-p          #+#    #+#             */
-/*   Updated: 2021/05/22 17:42:16 by dramos-p         ###   ########.fr       */
+/*   Updated: 2021/05/23 20:39:18 by dramos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	ft_atoi(const char *str)
 {
-	int	res;
-	int	sign;
-	int	i;
+	size_t	res;
+	size_t	sign;
+	size_t	i;
 
 	res = 0;
 	sign = 0;
