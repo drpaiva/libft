@@ -6,17 +6,40 @@
 #    By: dramos-p <dramos-p@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/18 21:35:47 by dramos-p          #+#    #+#              #
-#    Updated: 2021/05/18 22:08:18 by dramos-p         ###   ########.fr        #
+#    Updated: 2021/05/22 18:22:15 by dramos-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS	=	ft_bzero.c\
-			ft_memcpy.c\
-			ft_memset.c\
-			ft_memccpy.c\
-			ft_memmove.c\
-			ft_memchr.c\
-			main.c
+NAME = libft.a
+MAKE = make --no-print-directory
+TEST_DIR = test
+
+SRCS	=	ft_atoi.c\
+		ft_bzero.c\
+		ft_calloc.c\
+		ft_isalnum.c\
+		ft_isalpha.c\
+		ft_isascii.c\
+		ft_isdigit.c\
+		ft_isprint.c\
+		ft_memccpy.c\
+		ft_memchr.c\
+		ft_memcmp.c\
+		ft_memcpy.c\
+		ft_memmove.c\
+		ft_memset.c\
+		ft_strchr.c\
+		ft_strdup.c\
+		ft_strlcat.c\
+		ft_strlcpy.c\
+		ft_strlen.c\
+		ft_strncmp.c\
+		ft_strnstr.c\
+		ft_strrchr.c\
+		ft_tolower.c\
+		ft_toupper.c\
+		main.c
+
 CC		= gcc
 
 OBJS	= ${SRCS:.c=.o}
@@ -25,8 +48,21 @@ CFLAGS= -Wall\
 		-Werror\
 		-Wextra
 
-all:	${OBJS}
+all:	${NAME}
+
+$(NAME):	${OBJS}
+	ar -rcs ${NAME} ${OBJS}
+
+$(OBJS):	${SRCS}
+	${CC} ${CFLAGS} -c ${SRCS}
+
+test:
 		${CC} -o programa.out ${CFLAGS} ${SRCS}
 
 clean:
 		rm -rf *.o
+
+fclean: clean
+	rm -rf ${NAME}
+
+re:	fclean all

@@ -6,13 +6,13 @@
 /*   By: dramos-p <dramos-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 14:43:39 by dramos-p          #+#    #+#             */
-/*   Updated: 2021/05/19 00:10:21 by dramos-p         ###   ########.fr       */
+/*   Updated: 2021/05/22 17:59:00 by dramos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void *ft_memmove(void *dst, const void *src, size_t len)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
 	if (dst < src)
 		ft_memcpy(dst, src, len);

@@ -1,38 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dramos-p <dramos-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/19 00:43:11 by dramos-p          #+#    #+#             */
-/*   Updated: 2021/05/22 18:02:00 by dramos-p         ###   ########.fr       */
+/*   Created: 2021/05/22 16:14:01 by dramos-p          #+#    #+#             */
+/*   Updated: 2021/05/22 18:01:25 by dramos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
+char	*ft_strdup(const char *s1)
 {
-	unsigned int	i;
-	unsigned int	c_src;
+	char	*news1;
+	int		len;
+	int		sizes1;
 
-	i = 0;
-	c_src = ft_strlen(src);
-	if (dstsize == 0)
-	{
-		return (c_src);
-	}
-	dstsize--;
-	while (i < dstsize && *src != '\0')
-	{
-		dst[i] = src[i];
-		i++;
-	}
-	dst[i] = '\0';
-	while (i < dstsize)
-	{
-		dst[i] = '\0';
-	}
-	return (c_src);
+	len = ft_strlen(s1);
+	sizes1 = sizeof(char) * len + 1;
+	news1 = (char *)malloc(sizes1);
+	ft_bzero(news1, sizes1);
+	return ((char *)ft_memcpy(news1, s1, sizes1));
 }
