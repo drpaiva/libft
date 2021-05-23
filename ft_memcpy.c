@@ -6,7 +6,7 @@
 /*   By: dramos-p <dramos-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 20:34:33 by dramos-p          #+#    #+#             */
-/*   Updated: 2021/05/23 13:10:16 by dramos-p         ###   ########.fr       */
+/*   Updated: 2021/05/23 13:13:20 by dramos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	i = 0;
 	if (dest == src)
 		return (dest);
-	
 	while (i < n)
 	{
 		((char *)dest)[i] = ((char *)src)[i];
