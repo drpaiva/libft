@@ -6,7 +6,7 @@
 /*   By: dramos-p <dramos-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 00:43:11 by dramos-p          #+#    #+#             */
-/*   Updated: 2021/05/23 18:14:52 by dramos-p         ###   ########.fr       */
+/*   Updated: 2021/05/23 18:21:23 by dramos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,5 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 	while (i < dstsize && (dst[i] = src[i]) != '\0')
 		i++;
 	dst[i] = '\0';
-	return (c_src);
+	return (c_src + 1);
 }
