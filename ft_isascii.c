@@ -6,11 +6,11 @@
 /*   By: dramos-p <dramos-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/22 13:15:29 by dramos-p          #+#    #+#             */
-/*   Updated: 2021/05/22 17:44:13 by dramos-p         ###   ########.fr       */
+/*   Updated: 2021/05/23 12:54:57 by dramos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	isascii(int c)
+int	ft_isascii(int c)
 {
 	if (c >= 0 && c <= 127)
 		return (1);
