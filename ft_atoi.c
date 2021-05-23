@@ -6,7 +6,7 @@
 /*   By: dramos-p <dramos-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 06:49:31 by dramos-p          #+#    #+#             */
-/*   Updated: 2021/05/23 20:39:18 by dramos-p         ###   ########.fr       */
+/*   Updated: 2021/05/23 20:41:17 by dramos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	ft_atoi(const char *str)
 	res = 0;
 	sign = 0;
 	i = 0;
-	while (str[i] < 33)
+	while (str[i] < 42)
 		i++;
 	while (str[i] == '+' || str[i] == '-')
 	{
