@@ -6,7 +6,7 @@
 /*   By: dramos-p <dramos-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/18 20:57:11 by dramos-p          #+#    #+#             */
-/*   Updated: 2021/05/23 17:33:41 by dramos-p         ###   ########.fr       */
+/*   Updated: 2021/05/23 17:45:16 by dramos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	size_t i;
 
 	i = 0;
-	if (!((unsigned char *)s))
-		return (0);
 	while (i < n)
 	{
 		if (((unsigned char *)s)[i] == (unsigned char)c)
