@@ -6,7 +6,7 @@
 /*   By: dramos-p <dramos-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/23 23:02:07 by dramos-p          #+#    #+#             */
-/*   Updated: 2021/05/23 23:27:48 by dramos-p         ###   ########.fr       */
+/*   Updated: 2021/05/23 23:44:18 by dramos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,11 @@ char *ft_substr(char const *s, unsigned int start, size_t len)
 	size_t t;
 
 	s+start;
+	if (!len)
+		return (0);
+	news = malloc(sizeof(char) * len);
+	if (!news)
+		return (0);
 	t = ft_strlcpy(*news, s, len);
 	return (news);
 }
