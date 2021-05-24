@@ -6,7 +6,7 @@
 /*   By: dramos-p <dramos-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/23 23:02:07 by dramos-p          #+#    #+#             */
-/*   Updated: 2021/05/24 00:30:06 by dramos-p         ###   ########.fr       */
+/*   Updated: 2021/05/24 00:38:32 by dramos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,10 @@
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*news;
+	unsigned int c;
 
-	if (!len)
+	c = ft_strlen(s);
+	if (!len || start >= c)
 		return (0);
 	news = malloc(sizeof(char) * len + 1);
 	if (!news)
