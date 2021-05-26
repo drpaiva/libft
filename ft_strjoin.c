@@ -6,7 +6,7 @@
 /*   By: dramos-p <dramos-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 07:50:46 by dramos-p          #+#    #+#             */
-/*   Updated: 2021/05/26 01:04:59 by dramos-p         ###   ########.fr       */
+/*   Updated: 2021/05/26 01:13:44 by dramos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ char *ft_strjoin(char const *s1, char const *s2)
 	char	*join;
 	int	sumlen;
 
-	sumlen = ft_strlen((char *)s1) + ft_strlen((char *)s1);
+	sumlen = ft_strlen((char *)s1) + ft_strlen((char *)s1) + 1;
 	if ((!s1 && !s2) || !sumlen)
 		return (0);
 	if (!s1 && s2)
@@ -44,7 +44,8 @@ char *ft_strjoin(char const *s1, char const *s2)
 		return ((char *)s1);
 	if (s1 && s2)
 	{
-		join = malloc(sizeof(char) * (sumlen + 1));
+		join = malloc(sizeof(char) * sumlen);
+		ft_bzero(join, sumlen);
 		if (!join)
 			return (0);
 		join = ft_strcat((char *)join, (char *)s1);
