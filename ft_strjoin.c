@@ -6,13 +6,13 @@
 /*   By: dramos-p <dramos-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 07:50:46 by dramos-p          #+#    #+#             */
-/*   Updated: 2021/05/26 01:16:25 by dramos-p         ###   ########.fr       */
+/*   Updated: 2021/05/26 01:21:17 by dramos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char		*ft_strcat(char *dest, char *src)
+static char	*ft_strcat(char *dest, char *src)
 {
 	int		i;
 	int		t;
@@ -30,10 +30,10 @@ static char		*ft_strcat(char *dest, char *src)
 	return (dest);
 }
 
-char *ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*join;
-	int	sumlen;
+	int		sumlen;
 
 	sumlen = ft_strlen((char *)s1) + ft_strlen((char *)s1) + 1;
 	if ((!s1 && !s2) || !sumlen)
@@ -50,7 +50,7 @@ char *ft_strjoin(char const *s1, char const *s2)
 		ft_bzero(join, sumlen);
 		join = ft_strcat((char *)join, (char *)s1);
 		join = ft_strcat((char *)join, (char *)s2);
-		return ((char *)join);		
+		return ((char *)join);
 	}
 	return (0);
 }
