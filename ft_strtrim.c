@@ -6,7 +6,7 @@
 /*   By: dramos-p <dramos-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 03:13:42 by dramos-p          #+#    #+#             */
-/*   Updated: 2021/05/26 05:34:24 by dramos-p         ###   ########.fr       */
+/*   Updated: 2021/05/26 05:37:05 by dramos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 		i++;
 	}
 	res = malloc(sizeof(char) * len);
+	len = ft_strlen(news1) + 1;
+	ft_bzero(res, len);
 	res = (char *)ft_memcpy(res, news1, ft_strlen(news1) + 1);
 	return ((char *)res);
 }
