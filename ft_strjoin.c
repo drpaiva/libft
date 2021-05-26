@@ -6,7 +6,7 @@
 /*   By: dramos-p <dramos-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 07:50:46 by dramos-p          #+#    #+#             */
-/*   Updated: 2021/05/26 00:35:31 by dramos-p         ###   ########.fr       */
+/*   Updated: 2021/05/26 01:04:59 by dramos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static char		*ft_strcat(char *dest, char *src)
 		dest[i + t] = src[t];
 		t++;
 	}
-	dest[i + t] = '\0';
+	dest[i + t + 1] = '\0';
 	return (dest);
 }
 
