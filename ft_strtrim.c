@@ -6,7 +6,7 @@
 /*   By: dramos-p <dramos-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 03:13:42 by dramos-p          #+#    #+#             */
-/*   Updated: 2021/05/26 05:47:45 by dramos-p         ###   ########.fr       */
+/*   Updated: 2021/05/26 06:00:31 by dramos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,23 +19,24 @@ char	*ft_strtrim(char const *s1, char const *set)
 	char	*res;
 	int		i;
 	int		len;
+	int		lenc;
 
 	i = 0;
 	if (!s1)
 		return (0);
 	news1 = ft_strdup(s1);
+	lenc = ft_strlen(set);
 	while (set[i])
 	{
 		len = ft_strlen(news1) - 1;
-		while (news1[len] == set[i])
+		while (news1[len] == set[lenc - i])
 			news1[len--] = '\0';
 		while (*news1 == set[i])
 			news1++;
 		i++;
 	}
-	res = malloc(sizeof(char) * len);
 	len = ft_strlen(news1) + 1;
-	ft_bzero(res, len);
+	res = malloc(sizeof(char) * len);
 	res = ft_strdup(news1);
 	return ((char *)res);
 }
