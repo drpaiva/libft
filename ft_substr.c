@@ -6,7 +6,7 @@
 /*   By: dramos-p <dramos-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/23 23:02:07 by dramos-p          #+#    #+#             */
-/*   Updated: 2021/05/26 02:02:09 by dramos-p         ###   ########.fr       */
+/*   Updated: 2021/05/26 03:04:40 by dramos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		news = (char *)malloc(1);
 		return (news);
 	}
-	if (!len || !s)
+	if (!len || !s || start > c)
 		return (0);
 	news = (char *)malloc(sizeof(char) * len + 1);
 	if (!news)
