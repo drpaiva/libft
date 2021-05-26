@@ -6,7 +6,7 @@
 /*   By: dramos-p <dramos-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 03:13:42 by dramos-p          #+#    #+#             */
-/*   Updated: 2021/05/26 06:38:50 by dramos-p         ###   ########.fr       */
+/*   Updated: 2021/05/26 06:46:28 by dramos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,16 @@ char	*ft_strtrim(char const *s1, char const *set)
 
 	i = 0;
 	while (ft_strchr(set, s1[i]))
+	{
 		i++;
+		s1++;	
+	}
 	f = ft_strlen(s1);
 	while (ft_strchr(set, s1[f]))
 		f--;
 	res = malloc(sizeof(char) * f);
 	ft_strlcpy(res, s1, f + 1);
-	return ((char *)res);
+	return (res);
 	// char	*news1;
 	// char	*res;
 	// int		i;
