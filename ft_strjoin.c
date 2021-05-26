@@ -6,7 +6,7 @@
 /*   By: dramos-p <dramos-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 07:50:46 by dramos-p          #+#    #+#             */
-/*   Updated: 2021/05/26 01:21:17 by dramos-p         ###   ########.fr       */
+/*   Updated: 2021/05/26 01:52:52 by dramos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static char	*ft_strcat(char *dest, char *src)
 		dest[i + t] = src[t];
 		t++;
 	}
-	dest[i + t + 1] = '\0';
+	dest[i + t] = '\0';
 	return (dest);
 }
 
@@ -36,13 +36,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	int		sumlen;
 
 	sumlen = ft_strlen((char *)s1) + ft_strlen((char *)s1) + 1;
-	if ((!s1 && !s2) || !sumlen)
-		return (0);
-	if (!s1 && s2)
-		return ((char *)s2);
-	if (!s2 && s1)
-		return ((char *)s1);
-	if (s1 && s2)
+	if (s1 && s2 && sumlen)
 	{
 		join = malloc(sizeof(char) * sumlen);
 		if (!join)
