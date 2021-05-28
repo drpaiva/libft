@@ -6,7 +6,7 @@
 /*   By: dramos-p <dramos-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 19:01:12 by dramos-p          #+#    #+#             */
-/*   Updated: 2021/05/28 08:17:20 by dramos-p         ###   ########.fr       */
+/*   Updated: 2021/05/28 14:46:34 by dramos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,16 +41,35 @@ static char	**ft_free(char **s)
 	return (NULL);
 }
 
+static int	ft_strlendelimiter(char const *s, char c)
+{
+	int	len;
+
+	len = 0;
+	while (*s)
+	{
+		if (*s == c)
+		{
+			len++;
+			while (*s == c)
+				s++;
+		}
+		s++;
+	}
+	return (len);
+}
+
 char	**ft_split(char const *s, char c)
 {
 	char	**res;
 	char	*ns;
-	char	*chr;
 	int		i[2];
+	char	t[2];
 
-	chr = &c;
-	ns = ft_strtrim(s, chr);
-	res = (char **)ft_calloc(sizeof(char *), (ft_strlencut(ns, c) + 1));
+	t[0] = c;
+	t[1] = 0;
+	ns = ft_strtrim(s, t);
+	res = (char **)ft_calloc(sizeof(char *), ft_strlendelimiter(ns, t[0]) + 1);
 	if (!res)
 		return (0);
 	i[0] = 0;
@@ -61,9 +80,9 @@ char	**ft_split(char const *s, char c)
 		if (!res[i[0]])
 			return (ft_free(res));
 		ft_strlcpy(res[i[0]], ns, i[1]);
-		ns = ft_strtrim(ft_strchr(ns, c), chr);
+		ns = ft_strtrim(ft_strchr(ns, c), t);
 		i[0]++;
 	}
-	res[i[0]] = 0;
+	res[i[0]] = NULL;
 	return (res);
 }
