@@ -6,7 +6,7 @@
 /*   By: dramos-p <dramos-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/23 23:02:07 by dramos-p          #+#    #+#             */
-/*   Updated: 2021/05/28 15:18:21 by dramos-p         ###   ########.fr       */
+/*   Updated: 2021/05/28 15:23:00 by dramos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 	c = ft_strlen(s);
 	if (start == 0)
-		return (s);
+		return (news = s);
 	if (start >= c)
 		return (news = NULL);
 	if (!len || !s || start > c)
