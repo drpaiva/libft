@@ -6,27 +6,13 @@
 /*   By: dramos-p <dramos-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 19:01:12 by dramos-p          #+#    #+#             */
-/*   Updated: 2021/05/27 20:49:52 by dramos-p         ###   ########.fr       */
+/*   Updated: 2021/05/27 21:51:11 by dramos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// static int ft_strlenb(const char *s, char c)
-// {
-// 	int res;
-
-// 	res = 0;
-// 	while (*s)
-// 	{
-// 		res++;
-// 		s++;
-// 	}
-	
-// 	return (res++);
-// }
-
-static int ft_strlencut(char *s, char c)
+static int	ft_strlencut(char *s, char c)
 {
 	int	i;
 
@@ -38,30 +24,30 @@ static int ft_strlencut(char *s, char c)
 		i++;
 		s++;
 	}
-	return (i);
+	return (i++);
 }
 
-char **ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
-	char **res;
-	char *ns;
-	char *chr;
-	int i;
-	int len;
+	char	**res;
+	char	*ns;
+	char	*chr;
+	int		i[2];
 
 	chr = &c;
 	ns = ft_strtrim(s, chr);
-	res = (char **)malloc(sizeof(char *) * ft_strlencut(ns, c));
+	res = (char **)ft_calloc(sizeof(char *), (ft_strlencut(ns, c) + 1));
 	if (!res)
 		return (0);
-	i = 0;
+	i[0] = 0;
 	while (ft_strlencut(ns, c))
 	{
-		len = ft_strlencut(ns, c) + 1;
-		res[i] = malloc(sizeof(char) * len);
-		ft_strlcpy(res[i], ns, len);
+		i[1] = ft_strlencut(ns, c) + 1;
+		res[i[0]] = malloc(sizeof(char) * i[1]);
+		ft_strlcpy(res[i[0]], ns, i[1]);
 		ns = ft_strtrim(ft_strchr(ns, c), chr);
-		i++;
+		i[0]++;
 	}
-	return (res);	
+	res[i[0]] = 0;
+	return (res);
 }
