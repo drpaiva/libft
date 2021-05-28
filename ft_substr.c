@@ -6,7 +6,7 @@
 /*   By: dramos-p <dramos-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/23 23:02:07 by dramos-p          #+#    #+#             */
-/*   Updated: 2021/05/28 16:38:56 by dramos-p         ###   ########.fr       */
+/*   Updated: 2021/05/28 17:08:16 by dramos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,11 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	unsigned int	c;
 
 	c = ft_strlen(s);
+	if (!start && len > c)
+	{
+		news = (char *)ft_calloc(sizeof(char), c);
+		ft_strlcpy(news, s, len + 1);
+	}
 	if (!len || !s || start > c)
 		return (news = (char *)ft_calloc(sizeof(char), 1));
 	news = (char *)ft_calloc(sizeof(char), len + 1);
