@@ -6,7 +6,7 @@
 /*   By: dramos-p <dramos-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 19:01:12 by dramos-p          #+#    #+#             */
-/*   Updated: 2021/05/27 21:51:11 by dramos-p         ###   ########.fr       */
+/*   Updated: 2021/05/27 22:18:39 by dramos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,20 @@ static int	ft_strlencut(char *s, char c)
 	return (i++);
 }
 
+static char	**ft_free(char **s)
+{
+	int	i;
+
+	i = 0;
+	while (s[i])
+	{
+		free(s[i]);
+		i++;
+	}
+	free(s);
+	return (NULL);
+}
+
 char	**ft_split(char const *s, char c)
 {
 	char	**res;
@@ -43,7 +57,9 @@ char	**ft_split(char const *s, char c)
 	while (ft_strlencut(ns, c))
 	{
 		i[1] = ft_strlencut(ns, c) + 1;
-		res[i[0]] = malloc(sizeof(char) * i[1]);
+		res[i[0]] = ft_calloc(sizeof(char), i[1]);
+		if (!res[i[0]])
+			return (ft_free(res));
 		ft_strlcpy(res[i[0]], ns, i[1]);
 		ns = ft_strtrim(ft_strchr(ns, c), chr);
 		i[0]++;
