@@ -6,7 +6,7 @@
 /*   By: dramos-p <dramos-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 19:01:12 by dramos-p          #+#    #+#             */
-/*   Updated: 2021/05/28 14:46:34 by dramos-p         ###   ########.fr       */
+/*   Updated: 2021/05/28 17:22:33 by dramos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ char	**ft_split(char const *s, char c)
 	char	t[2];
 
 	t[0] = c;
-	t[1] = 0;
+	t[1] = '\0';
 	ns = ft_strtrim(s, t);
 	res = (char **)ft_calloc(sizeof(char *), ft_strlendelimiter(ns, t[0]) + 1);
 	if (!res)
