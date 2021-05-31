@@ -6,12 +6,11 @@
 /*   By: dramos-p <dramos-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/29 14:10:08 by dramos-p          #+#    #+#             */
-/*   Updated: 2021/05/31 15:47:46 by dramos-p         ###   ########.fr       */
+/*   Updated: 2021/05/31 15:50:52 by dramos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
+#include "libft.h"
 
 char	*ft_itoa(int n)
 {
@@ -27,7 +26,7 @@ char	*ft_itoa(int n)
 		n = n / 10;
 		i++;
 	}
-	res = malloc(sizeof(char) * ++i);
+	res = ft_calloc(sizeof(char), ++i);
 	d = 0;
 	while (val)
 	{
