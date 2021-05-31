@@ -6,11 +6,15 @@
 /*   By: dramos-p <dramos-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/29 14:10:08 by dramos-p          #+#    #+#             */
-/*   Updated: 2021/05/31 15:50:52 by dramos-p         ###   ########.fr       */
+/*   Updated: 2021/05/31 18:47:01 by dramos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+static char *ft_vetrev()
+{
+
+}
 
 char	*ft_itoa(int n)
 {
@@ -27,11 +31,12 @@ char	*ft_itoa(int n)
 		i++;
 	}
 	res = ft_calloc(sizeof(char), ++i);
-	d = 0;
+	if (!res)
+		return (0);
 	while (val)
 	{
-		res[d] = (val % 10) + '0';
-		d++;
+		i--;
+		res[i] = (val % 10) + '0';
 		val = val / 10;
 	}
 	return (res);
