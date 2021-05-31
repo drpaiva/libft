@@ -6,7 +6,7 @@
 /*   By: dramos-p <dramos-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/29 14:10:08 by dramos-p          #+#    #+#             */
-/*   Updated: 2021/05/31 19:04:52 by dramos-p         ###   ########.fr       */
+/*   Updated: 2021/05/31 19:12:37 by dramos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ char	*ft_itoa(int n)
 		n = n / 10;
 		i++;
 	}
-	res = ft_calloc(sizeof(char), ++i);
+	res = ft_calloc(sizeof(char), i);
 	if (!res)
 		return (0);
 	while (val)
