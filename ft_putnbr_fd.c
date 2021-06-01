@@ -6,7 +6,7 @@
 /*   By: dramos-p <dramos-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/01 20:22:48 by dramos-p          #+#    #+#             */
-/*   Updated: 2021/06/01 20:24:26 by dramos-p         ###   ########.fr       */
+/*   Updated: 2021/06/01 20:26:25 by dramos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,8 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	write(fd, n + '0', 1);
+	char c;
+
+	c = n + '0';
+	write(fd, &c, 1);
 }
