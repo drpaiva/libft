@@ -6,27 +6,27 @@
 /*   By: dramos-p <dramos-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/29 14:10:08 by dramos-p          #+#    #+#             */
-/*   Updated: 2021/05/31 20:37:02 by dramos-p         ###   ########.fr       */
+/*   Updated: 2021/05/31 22:50:38 by dramos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_lendec(int n)
+static size_t	ft_lendec(int n)
 {
-	int	i;
+	size_t	i;
+	size_t	res;
 
 	i = 0;
-	if (n < 0)
+	res = n;
+	if (n <= 0)
 	{
-		n = n * -1;
+		res = res * -1;
 		i++;
 	}
-	if (!n)
-		return (0);
-	while (n)
+	while (res)
 	{
-		n = n / 10;
+		res = res / 10;
 		i++;
 	}
 	return (i);
@@ -35,28 +35,26 @@ int	ft_lendec(int n)
 char	*ft_itoa(int n)
 {
 	char	*res;
-	int		i;
+	size_t	i;
+	size_t	str;
 
-	if (n == 0)
-	{
-		res = ft_calloc(sizeof(char), 1);
-		res[0] = '0';
-		return (res);
-	}
+	str = n;
 	i = ft_lendec(n);
 	res = ft_calloc(sizeof(char), i);
 	if (!res)
 		return (0);
+	if (n == 0)
+		res[0] = '0';
 	if (n < 0)
 	{
-		n = n * -1;
+		str = (long long)n * -1;
 		res[0] = '-';
 	}
-	while (n)
+	while (str)
 	{
 		i--;
-		res[i] = (n % 10) + '0';
-		n = n / 10;
+		res[i] = (str % 10) + '0';
+		str = str / 10;
 	}
 	return (res);
 }
