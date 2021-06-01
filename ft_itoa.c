@@ -6,7 +6,7 @@
 /*   By: dramos-p <dramos-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/29 14:10:08 by dramos-p          #+#    #+#             */
-/*   Updated: 2021/05/31 22:50:38 by dramos-p         ###   ########.fr       */
+/*   Updated: 2021/05/31 22:58:52 by dramos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ char	*ft_itoa(int n)
 
 	str = n;
 	i = ft_lendec(n);
-	res = ft_calloc(sizeof(char), i);
+	res = ft_calloc(sizeof(char), (i + 1));
 	if (!res)
 		return (0);
 	if (n == 0)
