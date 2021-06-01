@@ -6,7 +6,7 @@
 /*   By: dramos-p <dramos-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/13 00:15:45 by dramos-p          #+#    #+#             */
-/*   Updated: 2021/06/01 20:17:44 by dramos-p         ###   ########.fr       */
+/*   Updated: 2021/06/01 20:23:18 by dramos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void 	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
+void	ft_putnbr_fd(int n, int fd);
 
 
 #endif
