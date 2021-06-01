@@ -6,7 +6,7 @@
 /*   By: dramos-p <dramos-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/13 00:15:45 by dramos-p          #+#    #+#             */
-/*   Updated: 2021/05/31 23:28:50 by dramos-p         ###   ########.fr       */
+/*   Updated: 2021/06/01 19:58:39 by dramos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,6 @@ char	*ft_strtrim(char const *s1, char const *set);
 char 	**ft_split(char const *s, char c);
 char	*ft_itoa(int n);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+void 	ft_putchar_fd(char c, int fd);
 
 #endif
