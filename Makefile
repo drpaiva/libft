@@ -6,7 +6,7 @@
 #    By: dramos-p <dramos-p@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/18 21:35:47 by dramos-p          #+#    #+#              #
-#    Updated: 2021/06/01 20:05:06 by dramos-p         ###   ########.fr        #
+#    Updated: 2021/06/01 20:17:07 by dramos-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,7 +45,8 @@ SRCS	=	ft_atoi.c\
 		ft_itoa.c\
 		ft_strmapi.c\
 		ft_putchar_fd.c\
-		ft_putstr_fd.c
+		ft_putstr_fd.c\
+		ft_putendl_fd.c
 
 CC		= gcc
 
