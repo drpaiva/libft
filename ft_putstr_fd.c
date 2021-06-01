@@ -6,7 +6,7 @@
 /*   By: dramos-p <dramos-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/01 20:05:34 by dramos-p          #+#    #+#             */
-/*   Updated: 2021/06/01 20:12:08 by dramos-p         ###   ########.fr       */
+/*   Updated: 2021/06/01 20:15:01 by dramos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 void	ft_putstr_fd(char *s, int fd)
 {
-	int	i;
-
-	i = ft_strlen(s);
-	write(fd, &s, i);
+	while (*s)
+	write(fd, s++, 1);
 }
