@@ -6,7 +6,7 @@
 /*   By: dramos-p <dramos-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 23:28:01 by dramos-p          #+#    #+#             */
-/*   Updated: 2021/06/01 19:41:56 by dramos-p         ###   ########.fr       */
+/*   Updated: 2021/06/01 19:50:14 by dramos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	i = 0;
 	while (*s)
 	{
-		r[i] = f(i, s);
+		r[i] = f(i, s[i]);
 		s++;
 		i++;
 	}
