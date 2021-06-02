@@ -6,28 +6,11 @@
 /*   By: dramos-p <dramos-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/01 20:22:48 by dramos-p          #+#    #+#             */
-/*   Updated: 2021/06/01 21:59:58 by dramos-p         ###   ########.fr       */
+/*   Updated: 2021/06/01 22:02:27 by dramos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-static void	calc_print(long int qto_d, long int nb2, int fd)
-{
-	long int	el;
-	long int	resultado;
-	long int	conta;
-
-	while (qto_d > 0)
-	{
-		el = v_div(qto_d);
-		conta = nb2 / el;
-		resultado = conta + '0';
-		write(fd, &resultado, 1);
-		nb2 = nb2 - el * conta;
-		qto_d--;
-	}
-}
 
 static long int	v_div(long int num)
 {
@@ -66,6 +49,23 @@ static long int	ft_is_negative(long int n)
 	else
 		resp = 0;
 	return (resp);
+}
+
+static void	calc_print(long int qto_d, long int nb2, int fd)
+{
+	long int	el;
+	long int	resultado;
+	long int	conta;
+
+	while (qto_d > 0)
+	{
+		el = v_div(qto_d);
+		conta = nb2 / el;
+		resultado = conta + '0';
+		write(fd, &resultado, 1);
+		nb2 = nb2 - el * conta;
+		qto_d--;
+	}
 }
 
 void	ft_putnbr_fd(int n, int fd)
