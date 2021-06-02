@@ -6,7 +6,7 @@
 /*   By: dramos-p <dramos-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/01 20:22:48 by dramos-p          #+#    #+#             */
-/*   Updated: 2021/06/01 21:45:45 by dramos-p         ###   ########.fr       */
+/*   Updated: 2021/06/01 21:49:02 by dramos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void	ft_putnbr_fd(int n, int fd)
 {
 	size_t	str;
 	size_t	i;
+	char s;
 
 	str = n;
 	i = ft_lendec(n);
@@ -46,7 +47,8 @@ void	ft_putnbr_fd(int n, int fd)
 	}
 	while (str)
 	{
-		write(fd, (str % 10) + '0', 1);
+		s = (str % 10) + '0';
+		write(fd, &s, 1);
 		str = str / 10;
 	}
 }
