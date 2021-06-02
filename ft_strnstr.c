@@ -6,7 +6,7 @@
 /*   By: dramos-p <dramos-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 21:34:30 by dramos-p          #+#    #+#             */
-/*   Updated: 2021/05/27 20:11:59 by dramos-p         ###   ########.fr       */
+/*   Updated: 2021/06/02 00:53:10 by dramos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
 	size_t		i;
 	size_t		t;
+	size_t		nlen;
 
 	i = 0;
 	if (*needle == '\0')
@@ -23,7 +24,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	while (haystack[i] != '\0' && len)
 	{
 		t = 0;
-		while (haystack[i + t] == needle[t] && i + t < len)
+		while (haystack[i + t] == needle[t] && i + t < nlen)
 		{
 			t++;
 			if (needle[t] == '\0')
