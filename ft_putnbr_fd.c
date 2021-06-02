@@ -6,7 +6,7 @@
 /*   By: dramos-p <dramos-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/01 20:22:48 by dramos-p          #+#    #+#             */
-/*   Updated: 2021/06/01 21:35:38 by dramos-p         ###   ########.fr       */
+/*   Updated: 2021/06/01 21:45:45 by dramos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ static size_t	ft_lendec(int n)
 void	ft_putnbr_fd(int n, int fd)
 {
 	size_t	str;
-	char	*res;
 	size_t	i;
 
 	str = n;
@@ -43,17 +42,11 @@ void	ft_putnbr_fd(int n, int fd)
 	if (n < 0)
 	{
 		str = (long long)n * -1;
-		res[0] = '-';
+		write(fd, "-", 1);
 	}
 	while (str)
 	{
-		i--;
-		res[i] = (str % 10) + '0';
+		write(fd, (str % 10) + '0', 1);
 		str = str / 10;
-	}
-	while (*res)
-	{
-		write(fd, &res, 1);
-		res++;
 	}
 }
