@@ -6,7 +6,7 @@
 /*   By: dramos-p <dramos-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 03:13:42 by dramos-p          #+#    #+#             */
-/*   Updated: 2021/06/03 16:36:36 by dramos-p         ###   ########.fr       */
+/*   Updated: 2021/06/03 16:42:33 by dramos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,12 @@ char	*ft_strtrim(char const *s1, char const *set)
 		s1++;
 	f = ft_strlen(s1);
 	if (f <= 0)
-		return (ft_calloc(1, sizeof(char)));
+	{
+		res = ft_calloc(1, sizeof(char));
+		if (!res)
+			return (0);
+		return (res);
+	}
 	f--;
 	while (ft_strchr_md(nset, s1, f) && f > 0)
 		f--;
