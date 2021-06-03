@@ -6,7 +6,7 @@
 /*   By: dramos-p <dramos-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/22 13:51:17 by dramos-p          #+#    #+#             */
-/*   Updated: 2021/05/26 01:54:03 by dramos-p         ###   ########.fr       */
+/*   Updated: 2021/06/03 12:32:15 by dramos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,9 @@ void	*ft_calloc(size_t count, size_t size)
 	void	*r;
 
 	fullsize = count * size;
-	if (!size)
-		return (0);
 	r = malloc(fullsize);
-	if (!r)
-		return (0);
+	if (r == NULL)
+		return (NULL);
 	ft_bzero(r, fullsize);
 	return (r);
 }
