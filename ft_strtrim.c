@@ -6,7 +6,7 @@
 /*   By: dramos-p <dramos-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 03:13:42 by dramos-p          #+#    #+#             */
-/*   Updated: 2021/06/03 16:44:57 by dramos-p         ###   ########.fr       */
+/*   Updated: 2021/06/03 19:31:22 by dramos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	{
 		res = ft_calloc(1, sizeof(char));
 		if (!res)
-			return (NULL);
+			return (res = NULL);
 		return (res);
 	}
 	f--;
