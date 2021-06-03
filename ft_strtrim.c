@@ -6,24 +6,22 @@
 /*   By: dramos-p <dramos-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 03:13:42 by dramos-p          #+#    #+#             */
-/*   Updated: 2021/06/03 14:20:16 by dramos-p         ###   ########.fr       */
+/*   Updated: 2021/06/03 16:24:49 by dramos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_strchr_md(const char *s, char c)
+static int	ft_strchr_md(const char *s, char const *c, int p)
 {
 	size_t	i;
 	size_t	len;
-	char	proc;
 
-	proc = c;
 	i = 0;
 	len = ft_strlen(s);
 	while (i < len)
 	{
-		if (s[i] == proc)
+		if (s[i] == c[p])
 			return (1);
 		i++;
 	}
@@ -37,21 +35,18 @@ char	*ft_strtrim(char const *s1, char const *set)
 	char	*nset;
 
 	f = ft_strlen(set) + 1;
-	nset = ft_calloc(sizeof(char), f);
+	nset = ft_calloc(f, sizeof(char));
 	ft_strlcpy(nset, set, f);
 	if (!s1 || set == 0)
 		return (0);
-	while (s1[0] != '\0' && ft_strchr_md(nset, s1[0]))
+	while (s1[0] != '\0' && ft_strchr(nset, s1[0]))
 		s1++;
-	f = ft_strlen(s1) + 1;
+	f = ft_strlen(s1);
 	if (f <= 0)
-		return (ft_calloc(sizeof(char), f));
+		return (ft_calloc(0, sizeof(char)));
 	f--;
-	while (ft_strchr_md(nset, s1[f]) && f > 0)
+	while (ft_strchr_md(nset, s1, f) && f > 0)
 		f--;
-	res = ft_calloc(sizeof(char), f + 1);
-	if (!res)
-		return (0);
-	ft_strlcpy(res, s1, f);
+	res = ft_substr(s1, 0, (f + 1));
 	return (res);
 }
