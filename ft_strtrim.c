@@ -6,7 +6,7 @@
 /*   By: dramos-p <dramos-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 03:13:42 by dramos-p          #+#    #+#             */
-/*   Updated: 2021/06/03 14:15:50 by dramos-p         ###   ########.fr       */
+/*   Updated: 2021/06/03 14:20:16 by dramos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	ft_strlcpy(nset, set, f);
 	if (!s1 || set == 0)
 		return (0);
-	while (s1[0] != '\0' && ft_strchr(nset, s1[0]))
+	while (s1[0] != '\0' && ft_strchr_md(nset, s1[0]))
 		s1++;
 	f = ft_strlen(s1) + 1;
 	if (f <= 0)
