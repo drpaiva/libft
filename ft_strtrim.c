@@ -6,7 +6,7 @@
 /*   By: dramos-p <dramos-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 03:13:42 by dramos-p          #+#    #+#             */
-/*   Updated: 2021/06/03 19:31:22 by dramos-p         ###   ########.fr       */
+/*   Updated: 2021/06/03 19:35:33 by dramos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,24 +34,23 @@ char	*ft_strtrim(char const *s1, char const *set)
 	int		f;
 	char	*nset;
 
-	f = ft_strlen(set) + 1;
-	nset = ft_calloc(f, sizeof(char));
-	ft_strlcpy(nset, set, f);
 	if (!s1 || set == 0)
 		return (0);
-	while (s1[0] != '\0' && ft_strchr(nset, s1[0]))
+	while (s1[0] != '\0' && ft_strchr(set, s1[0]))
 		s1++;
 	f = ft_strlen(s1);
 	if (f <= 0)
 	{
 		res = ft_calloc(1, sizeof(char));
 		if (!res)
-			return (res = NULL);
+			return (NULL);
 		return (res);
 	}
 	f--;
-	while (ft_strchr_md(nset, s1, f) && f > 0)
+	while (ft_strchr_md(set, s1, f) && f > 0)
 		f--;
 	res = ft_substr(s1, 0, (f + 1));
+	if (!res)
+		return (NULL);
 	return (res);
 }
