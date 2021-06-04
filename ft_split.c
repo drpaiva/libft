@@ -6,7 +6,7 @@
 /*   By: dramos-p <dramos-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 19:01:12 by dramos-p          #+#    #+#             */
-/*   Updated: 2021/06/04 17:59:50 by dramos-p         ###   ########.fr       */
+/*   Updated: 2021/06/04 18:09:42 by dramos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,18 @@ static int	ft_strlendelimiter(char const *s, char c)
 	
 }
 
+static char	**ft_nalloc(int len)
+{
+	char	**res;
+	if (!len)
+		return ((char **)ft_calloc(len + 1, sizeof(char *)));
+	else
+		res = (char **)ft_calloc(len + 2, sizeof(char *));
+	if (!res)
+		return (NULL);
+	return (res);
+}
+
 char	**ft_split(char const *s, char c)
 {
 	char	**res;
@@ -69,15 +81,15 @@ char	**ft_split(char const *s, char c)
 
 	str = (char *)s;
 	len = (ft_strlendelimiter(str, c));
-	if (!len)
-		return ((char **)ft_calloc(len + 1, sizeof(char *)));
-	else
-		res = (char **)ft_calloc(len + 2, sizeof(char *));
+	res = ft_nalloc(len);
 	if (!res)
 		return (NULL);
 	i[0] = 0;
 	while (len + 1)
 	{
+		str = ft_strtrim(str, &c);
+		if (!str)
+			return (NULL);
 		i[1] = ft_strlencut(str, c);
 		res[i[0]] = ft_substr(str, 0, i[1]);
 		while (i[1]--)
@@ -86,6 +98,5 @@ char	**ft_split(char const *s, char c)
 		str++;
 		i[0]++;
 	}
-	// res[i[0]++] = NULL;
 	return (res);
 }
