@@ -6,7 +6,7 @@
 /*   By: dramos-p <dramos-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 19:01:12 by dramos-p          #+#    #+#             */
-/*   Updated: 2021/06/04 11:06:12 by dramos-p         ###   ########.fr       */
+/*   Updated: 2021/06/04 11:14:19 by dramos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,9 @@ static int	ft_strlendelimiter(char const *s, char c)
 			len++;
 		i++;
 	}
-	
-	return (len);
+	if (!len)
+		return (0);
+	return (len + 1);
 }
 
 char	**ft_split(char const *s, char c)
@@ -76,10 +77,10 @@ char	**ft_split(char const *s, char c)
 	int		i[3];
 
 	str = ft_strdup(s);
-	len = (ft_strlendelimiter(str, c) + 1);
-	res = (char **)ft_calloc(len + 1, sizeof(char *));
+	len = (ft_strlendelimiter(str, c));
+	res = (char **)ft_calloc(len, sizeof(char *));
 	if (!res)
-		return (0);
+		return (NULL);
 	i[0] = 0;
 	while (len)
 	{
