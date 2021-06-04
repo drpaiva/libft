@@ -6,7 +6,7 @@
 /*   By: dramos-p <dramos-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 19:01:12 by dramos-p          #+#    #+#             */
-/*   Updated: 2021/06/04 12:30:28 by dramos-p         ###   ########.fr       */
+/*   Updated: 2021/06/04 12:40:11 by dramos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,9 @@ static int	ft_strlendelimiter(char const *s, char c)
 		}
 		i++;
 	}
-	if (s)
-		return (len + 1);
-	return (0);
+	// if (s)
+	// 	return (len + 1);
+	return (len);
 	
 }
 
@@ -69,7 +69,7 @@ char	**ft_split(char const *s, char c)
 	if (!res)
 		return (NULL);
 	i[0] = 0;
-	while (len)
+	while ((len + 1))
 	{
 		str = ft_strtrim(str, &c);
 		i[1] = ft_strlencut(str, c);
