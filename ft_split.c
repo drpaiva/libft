@@ -6,7 +6,7 @@
 /*   By: dramos-p <dramos-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 19:01:12 by dramos-p          #+#    #+#             */
-/*   Updated: 2021/06/04 12:20:22 by dramos-p         ###   ########.fr       */
+/*   Updated: 2021/06/04 12:22:15 by dramos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static int	ft_strlendelimiter(char const *s, char c)
 		}
 		i++;
 	}
-	if (!len && !str)
+	if (!len && !s)
 		return (0);
 	return (len + 1);
 }
