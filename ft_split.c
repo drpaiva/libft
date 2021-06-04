@@ -6,7 +6,7 @@
 /*   By: dramos-p <dramos-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 19:01:12 by dramos-p          #+#    #+#             */
-/*   Updated: 2021/06/04 12:03:55 by dramos-p         ###   ########.fr       */
+/*   Updated: 2021/06/04 12:20:22 by dramos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static int	ft_strlencut(char *s, char c)
 {
-	char *s1;
-	int	i;
+	char	*s1;
+	int		i;
 
 	s1 = ft_strdup(s);
 	i = 0;
@@ -29,31 +29,13 @@ static int	ft_strlencut(char *s, char c)
 	return (i);
 }
 
-// static char	**ft_free(char **s)
-// {
-// 	int	i;
-
-// 	i = 0;
-// 	while (s[i])
-// 	{
-// 		free(s[i]);
-// 		i++;
-// 	}
-// 	free(s);
-// 	return (NULL);
-// }
-
 static int	ft_strlendelimiter(char const *s, char c)
 {
-	int	len;
-	int	i;
-	int	j;
-	char *str;
-	// char	d[2];
+	int		len;
+	int		i;
+	int		j;
+	char	*str;
 
-	// d[0] = c;
-	// d[1] = '\0';
-	// str = ft_strdup(s);
 	str = ft_strtrim(s, &c);
 	len = 0;
 	j = ft_strlen(str);
@@ -68,7 +50,7 @@ static int	ft_strlendelimiter(char const *s, char c)
 		}
 		i++;
 	}
-	if (!len)
+	if (!len && !str)
 		return (0);
 	return (len + 1);
 }
