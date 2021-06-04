@@ -6,7 +6,7 @@
 /*   By: dramos-p <dramos-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 19:01:12 by dramos-p          #+#    #+#             */
-/*   Updated: 2021/06/04 20:46:06 by dramos-p         ###   ########.fr       */
+/*   Updated: 2021/06/04 20:52:30 by dramos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,5 +123,6 @@ char	**ft_split(char const *s, char c)
 	if (!ft_strlen(str))
 		return (res);
 	res = ft_pop(i, str, res, nc);
+	free(str);
 	return (res);
 }
