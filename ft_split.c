@@ -6,7 +6,7 @@
 /*   By: dramos-p <dramos-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 19:01:12 by dramos-p          #+#    #+#             */
-/*   Updated: 2021/06/04 18:15:02 by dramos-p         ###   ########.fr       */
+/*   Updated: 2021/06/04 18:39:11 by dramos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,20 +75,13 @@ static char	**ft_nalloc(int len)
 	return (res);
 }
 
-char	**ft_split(char const *s, char c)
+static char	**ft_pop(int *i, char *str, char **res, char c)
 {
-	char	**res;
-	char	*str;
-	int		len;
-	int		i[3];
-
-	str = (char *)s;
+	int len;
+	
 	len = (ft_strlendelimiter(str, c));
-	res = ft_nalloc(len);
-	if (!res)
-		return (NULL);
 	i[0] = 0;
-	while (len + 1 && len != 0)
+	while (len + 1)
 	{
 		str = ft_strtrim(str, &c);
 		if (!str)
@@ -101,5 +94,26 @@ char	**ft_split(char const *s, char c)
 		str++;
 		i[0]++;
 	}
+	return (res);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	char	**res;
+	char	*str;
+	int		len;
+	int		i[3];
+
+	str = ft_strtrim(s, &c);
+	if (!str)
+		return (NULL);
+	len = (ft_strlendelimiter(str, c));
+	res = ft_nalloc(len);
+	if (!res)
+		return (NULL);
+	if (!ft_strlen(str))
+		return (res);
+	res = ft_pop(i, str, res, c);
+
 	return (res);
 }
