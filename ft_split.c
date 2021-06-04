@@ -6,7 +6,7 @@
 /*   By: dramos-p <dramos-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 19:01:12 by dramos-p          #+#    #+#             */
-/*   Updated: 2021/06/04 18:09:42 by dramos-p         ###   ########.fr       */
+/*   Updated: 2021/06/04 18:15:02 by dramos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,10 @@ static char	**ft_nalloc(int len)
 {
 	char	**res;
 	if (!len)
-		return ((char **)ft_calloc(len + 1, sizeof(char *)));
+	{
+		res = (char **)ft_calloc(len + 1, sizeof(char *));
+		return (res);
+	}
 	else
 		res = (char **)ft_calloc(len + 2, sizeof(char *));
 	if (!res)
@@ -85,7 +88,7 @@ char	**ft_split(char const *s, char c)
 	if (!res)
 		return (NULL);
 	i[0] = 0;
-	while (len + 1)
+	while (len + 1 && len != 0)
 	{
 		str = ft_strtrim(str, &c);
 		if (!str)
