@@ -6,7 +6,7 @@
 /*   By: dramos-p <dramos-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 19:01:12 by dramos-p          #+#    #+#             */
-/*   Updated: 2021/06/04 19:41:50 by dramos-p         ###   ########.fr       */
+/*   Updated: 2021/06/04 19:49:00 by dramos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,12 @@ static char	**ft_pop(int *i, char *str, char **res, char c)
 		i[1] = ft_strlencut(str, c);
 		res[i[0]] = ft_substr(str, 0, i[1]);
 		if (!res[i[0]])
-			return (ft_free(res));
+		{
+			while (res[i[2]])
+				free(res[i[2]++]);
+			free(res);
+			return (NULL);
+		}
 		while (i[1]--)
 			str++;
 		len--;
@@ -104,6 +109,7 @@ char	**ft_split(char const *s, char c)
 	int		len;
 	int		i[3];
 
+	i[2] = 0;
 	str = ft_strtrim(s, &c);
 	if (!str)
 		return (NULL);
