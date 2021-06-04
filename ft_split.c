@@ -6,7 +6,7 @@
 /*   By: dramos-p <dramos-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 19:01:12 by dramos-p          #+#    #+#             */
-/*   Updated: 2021/06/04 11:26:40 by dramos-p         ###   ########.fr       */
+/*   Updated: 2021/06/04 12:03:55 by dramos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,19 +49,23 @@ static int	ft_strlendelimiter(char const *s, char c)
 	int	i;
 	int	j;
 	char *str;
-	char	d[2];
+	// char	d[2];
 
-	d[0] = c;
-	d[1] = '\0';
-	str = ft_strdup(s);
-	str = ft_strtrim(str, d);
+	// d[0] = c;
+	// d[1] = '\0';
+	// str = ft_strdup(s);
+	str = ft_strtrim(s, &c);
 	len = 0;
 	j = ft_strlen(str);
 	i = 0;
 	while (i < j)
 	{
-		if (s[i] == c)
+		if ((unsigned char)str[i] == (unsigned char)c)
+		{
+			while ((unsigned char)str[i] == (unsigned char)c)
+				i++;
 			len++;
+		}
 		i++;
 	}
 	if (!len)
@@ -76,7 +80,7 @@ char	**ft_split(char const *s, char c)
 	int		len;
 	int		i[3];
 
-	str = ft_strdup(s);
+	str = ft_strtrim(s, &c);
 	len = (ft_strlendelimiter(str, c));
 	res = (char **)ft_calloc(len + 1, sizeof(char *));
 	if (!res)
@@ -84,6 +88,7 @@ char	**ft_split(char const *s, char c)
 	i[0] = 0;
 	while (len)
 	{
+		str = ft_strtrim(str, &c);
 		i[1] = ft_strlencut(str, c);
 		res[i[0]] = ft_substr(str, 0, i[1]);
 		while (i[1]--)
