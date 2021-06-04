@@ -6,7 +6,7 @@
 /*   By: dramos-p <dramos-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 19:01:12 by dramos-p          #+#    #+#             */
-/*   Updated: 2021/06/04 19:49:00 by dramos-p         ###   ########.fr       */
+/*   Updated: 2021/06/04 20:46:06 by dramos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,14 @@ static int	ft_strlencut(char *s, char c)
 	return (i);
 }
 
-static int	ft_strlendelimiter(char const *s, char c)
+static int	ft_strlendelimiter(char const *s, char *nc)
 {
 	int		len;
 	int		i;
 	int		j;
 	char	*str;
 
-	str = ft_strtrim(s, &c);
+	str = ft_strtrim(s, nc);
 	if (!str)
 		return (0);
 	len = 0;
@@ -46,9 +46,9 @@ static int	ft_strlendelimiter(char const *s, char c)
 	i = 0;
 	while (i < j)
 	{
-		if ((unsigned char)str[i] == (unsigned char)c)
+		if ((unsigned char)str[i] == (unsigned char)nc[0])
 		{
-			while ((unsigned char)str[i] == (unsigned char)c)
+			while ((unsigned char)str[i] == (unsigned char)nc[0])
 				i++;
 			len++;
 		}
@@ -73,18 +73,18 @@ static char	**ft_nalloc(int len)
 	return (res);
 }
 
-static char	**ft_pop(int *i, char *str, char **res, char c)
+static char	**ft_pop(int *i, char *str, char **res, char *nc)
 {
 	int	len;
 
-	len = (ft_strlendelimiter(str, c));
+	len = (ft_strlendelimiter(str, nc));
 	i[0] = 0;
 	while (len + 1)
 	{
-		str = ft_strtrim(str, &c);
+		str = ft_strtrim(str, nc);
 		if (!str)
 			return (NULL);
-		i[1] = ft_strlencut(str, c);
+		i[1] = ft_strlencut(str, nc[0]);
 		res[i[0]] = ft_substr(str, 0, i[1]);
 		if (!res[i[0]])
 		{
@@ -108,17 +108,20 @@ char	**ft_split(char const *s, char c)
 	char	*str;
 	int		len;
 	int		i[3];
+	char	nc[2];
 
 	i[2] = 0;
-	str = ft_strtrim(s, &c);
+	nc[0] = c;
+	nc[1] = '\0';
+	str = ft_strtrim(s, nc);
 	if (!str)
 		return (NULL);
-	len = (ft_strlendelimiter(str, c));
+	len = (ft_strlendelimiter(str, nc));
 	res = ft_nalloc(len);
 	if (!res)
 		return (NULL);
 	if (!ft_strlen(str))
 		return (res);
-	res = ft_pop(i, str, res, c);
+	res = ft_pop(i, str, res, nc);
 	return (res);
 }
