@@ -6,7 +6,7 @@
 /*   By: dramos-p <dramos-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 19:01:12 by dramos-p          #+#    #+#             */
-/*   Updated: 2021/06/03 22:33:54 by dramos-p         ###   ########.fr       */
+/*   Updated: 2021/06/04 11:06:12 by dramos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ static int	ft_strlendelimiter(char const *s, char c)
 	str = ft_strdup(s);
 	str = ft_strtrim(str, d);
 	len = 0;
-	j = ft_strlen(s);
+	j = ft_strlen(str);
 	i = 0;
 	while (i < j)
 	{
