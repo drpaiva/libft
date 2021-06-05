@@ -6,7 +6,7 @@
 /*   By: dramos-p <dramos-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/04 21:25:32 by dramos-p          #+#    #+#             */
-/*   Updated: 2021/06/05 16:55:12 by dramos-p         ###   ########.fr       */
+/*   Updated: 2021/06/05 17:03:30 by dramos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,8 @@ char	**ft_split(char const *s, char c)
 			lendelimiter--;
 			i++;
 		}
-		s++;
+		if (*s != '\0')
+			s++;
 	}
 	return (res);
 }
