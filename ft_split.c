@@ -6,7 +6,7 @@
 /*   By: dramos-p <dramos-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/04 21:25:32 by dramos-p          #+#    #+#             */
-/*   Updated: 2021/06/05 00:53:43 by dramos-p         ###   ########.fr       */
+/*   Updated: 2021/06/05 01:04:29 by dramos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,17 @@ static int	ft_lendelimiter(char const *s, char c)
 	return (len);
 }
 
+static int	ft_free(char **s)
+{
+	int	i;
+
+	i = 0;
+	while (s[i])
+		free(s[i++]);
+	free(s);
+	return (0);
+}
+
 static int	ft_nalloc(char const *s, char **res, int i, char c)
 {
 	int		lenwords;
@@ -43,7 +54,7 @@ static int	ft_nalloc(char const *s, char **res, int i, char c)
 		lenwords++;
 	res[i] = (char *)ft_calloc(lenwords + 1, sizeof(char));
 	if (!res[i])
-		return (0);
+		return (ft_free(res));
 	return (lenwords);
 }
 
