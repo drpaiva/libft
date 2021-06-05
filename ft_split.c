@@ -6,7 +6,7 @@
 /*   By: dramos-p <dramos-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 19:01:12 by dramos-p          #+#    #+#             */
-/*   Updated: 2021/06/04 21:15:43 by dramos-p         ###   ########.fr       */
+/*   Updated: 2021/06/04 21:22:16 by dramos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@ static int	ft_strlendelimiter(char const *s, char *nc)
 		}
 		i++;
 	}
-	free(str);
 	return (len);
 }
 
@@ -91,7 +90,7 @@ static char	**ft_pop(int *i, char *str, char **res, char *nc)
 		{
 			while (res[i[2]])
 				free(res[i[2]++]);
-			free(str);
+			free(res);
 			return (NULL);
 		}
 		while (i[1]--)
@@ -120,18 +119,9 @@ char	**ft_split(char const *s, char c)
 	len = (ft_strlendelimiter(str, nc));
 	res = ft_nalloc(len);
 	if (!res)
-	{
-		free(str);
 		return (NULL);
-	}
 	if (!ft_strlen(str))
 		return (res);
 	res = ft_pop(i, str, res, nc);
-	if (!res)
-	{
-		free(res);
-		return (NULL);
-	}
-	free(str);
 	return (res);
 }
