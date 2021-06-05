@@ -6,7 +6,7 @@
 /*   By: dramos-p <dramos-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/04 21:25:32 by dramos-p          #+#    #+#             */
-/*   Updated: 2021/06/05 18:06:53 by dramos-p         ###   ########.fr       */
+/*   Updated: 2021/06/05 18:16:41 by dramos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ static int	ft_nalloc(char const *s, char **res, int i, char c)
 {
 	int		lenwords;
 	int		d;
-	
+
 	lenwords = 0;
 	while ((unsigned char)s[lenwords] != (unsigned char)c && s[lenwords])
 		lenwords++;
@@ -74,7 +74,7 @@ char	**ft_split(char const *s, char c)
 	if (!res)
 		return (NULL);
 	i = 0;
-	while (*s != '\0' && lendelimiter)
+	while (*s != '\0')
 	{
 		lenwords = 0;
 		if ((unsigned char)s[0] != (unsigned char)c)
@@ -83,7 +83,6 @@ char	**ft_split(char const *s, char c)
 			if (!lenwords)
 				return (NULL);
 			s = &s[lenwords];
-			lendelimiter--;
 			i++;
 		}
 		if (*s != '\0')
