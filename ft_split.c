@@ -6,7 +6,7 @@
 /*   By: dramos-p <dramos-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/04 21:25:32 by dramos-p          #+#    #+#             */
-/*   Updated: 2021/06/04 22:50:56 by dramos-p         ###   ########.fr       */
+/*   Updated: 2021/06/04 22:55:17 by dramos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ static int	ft_lendelimiter(char const *s, char c)
 
 	lenfull = ft_strlen(s);
 	i = 0;
+	len = 0;
 	while (i <= lenfull)
 	{
 		if ((unsigned char)s[i] != (unsigned char)c)
