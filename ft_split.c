@@ -6,7 +6,7 @@
 /*   By: dramos-p <dramos-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/04 21:25:32 by dramos-p          #+#    #+#             */
-/*   Updated: 2021/06/05 17:03:30 by dramos-p         ###   ########.fr       */
+/*   Updated: 2021/06/05 17:49:46 by dramos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ static int	ft_free(char **s)
 static int	ft_nalloc(char const *s, char **res, int i, char c)
 {
 	int		lenwords;
+	int		d;
 	
 	lenwords = 0;
 	while ((unsigned char)s[lenwords] != (unsigned char)c && s[lenwords])
@@ -55,6 +56,9 @@ static int	ft_nalloc(char const *s, char **res, int i, char c)
 	res[i] = (char *)ft_calloc(lenwords + 1, sizeof(char));
 	if (!res[i])
 		return (ft_free(res));
+	d = 0;
+	while (d < lenwords)
+		res[i][d++] = *s++;
 	return (lenwords);
 }
 
@@ -64,7 +68,7 @@ char	**ft_split(char const *s, char c)
 	int		lendelimiter;
 	int		lenwords;
 	int		i;
-	int		d;
+	// int		d;
 
 	lendelimiter = ft_lendelimiter(s, c);
 	res = (char **)ft_calloc((lendelimiter + 1), sizeof(char *));
@@ -79,9 +83,10 @@ char	**ft_split(char const *s, char c)
 			lenwords = ft_nalloc(s, res, i, c);
 			if (!lenwords)
 				return (NULL);
-			d = 0;
-			while (d < lenwords)
-				res[i][d++] = *s++;
+			while (lenwords--)
+				s++;
+			// while (d < lenwords)
+			// 	res[i][d++] = *s++;
 			lendelimiter--;
 			i++;
 		}
