@@ -6,7 +6,7 @@
 #    By: dramos-p <dramos-p@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/18 21:35:47 by dramos-p          #+#    #+#              #
-#    Updated: 2021/06/01 20:22:58 by dramos-p         ###   ########.fr        #
+#    Updated: 2021/06/06 16:33:32 by dramos-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,9 +49,13 @@ SRCS	=	ft_atoi.c\
 		ft_putendl_fd.c\
 		ft_putnbr_fd.c
 
+SRCSB	=	ft_lstnew.c
+
 CC		= gcc
 
 OBJS	= ${SRCS:.c=.o}
+
+OBJSB	= ${SRCSB:.c=.o}
 
 CFLAGS= -Wall\
 		-Werror\
@@ -62,11 +66,11 @@ all:	${NAME}
 $(NAME):	${OBJS}
 	ar -rcs ${NAME} ${OBJS}
 
-$(OBJS):	${SRCS}
-	${CC} ${CFLAGS} -c ${SRCS}
-
 test:
 		${CC} -o programa.out ${CFLAGS} ${SRCS}
+
+bonus:	${OBJSB}
+	ar -rcs ${NAME} ${OBJSB}
 
 clean:
 		rm -rf *.o
