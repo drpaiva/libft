@@ -6,13 +6,11 @@
 #    By: dramos-p <dramos-p@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/18 21:35:47 by dramos-p          #+#    #+#              #
-#    Updated: 2021/06/09 00:12:44 by dramos-p         ###   ########.fr        #
+#    Updated: 2021/06/09 19:14:22 by dramos-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
-MAKE = make --no-print-directory
-TEST_DIR = test
 
 SRCS	=	ft_atoi.c\
 		ft_bzero.c\
