@@ -6,7 +6,7 @@
 /*   By: dramos-p <dramos-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 23:20:23 by dramos-p          #+#    #+#             */
-/*   Updated: 2021/06/09 00:07:02 by dramos-p         ###   ########.fr       */
+/*   Updated: 2021/06/09 00:41:24 by dramos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,4 @@ void	ft_lstclear(t_list **lst, void (*del)(void*))
 		nlst = next;
 	}
 	*lst = NULL;
-
 }
