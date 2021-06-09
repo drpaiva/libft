@@ -6,7 +6,7 @@
 /*   By: dramos-p <dramos-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 15:41:01 by dramos-p          #+#    #+#             */
-/*   Updated: 2021/06/09 00:38:28 by dramos-p         ###   ########.fr       */
+/*   Updated: 2021/06/09 00:48:08 by dramos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,17 @@
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	t_list	*last;
+	t_list	*p;
 
+	if (*lst == NULL && new)
+	{
+		*lst = new;
+		return ;
+	}
 	if (new != NULL)
 	{
-		last = ft_lstlast(*lst);
-		new->next = last->next;
-		last->next = new;
+		p = ft_lstlast(*lst);
+		new->next = p->next;
+		p->next = new;
 	}
-	if (*lst == NULL)
-		*lst = new;
 }
