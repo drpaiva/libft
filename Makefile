@@ -6,7 +6,7 @@
 #    By: dramos-p <dramos-p@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/18 21:35:47 by dramos-p          #+#    #+#              #
-#    Updated: 2021/06/06 16:33:32 by dramos-p         ###   ########.fr        #
+#    Updated: 2021/06/09 00:12:44 by dramos-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,7 +49,15 @@ SRCS	=	ft_atoi.c\
 		ft_putendl_fd.c\
 		ft_putnbr_fd.c
 
-SRCSB	=	ft_lstnew.c
+SRCSB	=	ft_lstnew.c\
+		ft_lstadd_front.c\
+		ft_lstsize.c\
+		ft_lstlast.c\
+		ft_lstadd_back.c\
+		ft_lstdelone.c\
+		ft_lstclear.c\
+		ft_lstiter.c\
+		ft_lstmap.c
 
 CC		= gcc
 
@@ -66,14 +74,11 @@ all:	${NAME}
 $(NAME):	${OBJS}
 	ar -rcs ${NAME} ${OBJS}
 
-test:
-		${CC} -o programa.out ${CFLAGS} ${SRCS}
-
 bonus:	${OBJSB}
 	ar -rcs ${NAME} ${OBJSB}
 
 clean:
-		rm -rf *.o
+	rm -rf *.o
 
 fclean: clean
 	rm -rf ${NAME}

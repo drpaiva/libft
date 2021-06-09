@@ -1,25 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dramos-p <dramos-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/06 10:56:04 by dramos-p          #+#    #+#             */
-/*   Updated: 2021/06/09 00:06:55 by dramos-p         ###   ########.fr       */
+/*   Created: 2021/06/08 23:36:24 by dramos-p          #+#    #+#             */
+/*   Updated: 2021/06/09 00:11:12 by dramos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstnew(void *content)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *),void (*del)(void *))
 {
-	t_list	*elem;
+	t_list	*res;
+	t_list	*tmp;
 
-	elem = malloc(sizeof(t_list));
-	if (elem)
+	if (lst == NULL || f == NULL)
 		return (NULL);
-	elem->content = content;
-	elem->next = NULL;
-	return (elem);
+	res = NULL;
+	while (lst)
+	{
+		tmp = ft_lstnew((*f)(lst->content));
+		if (!tmp)
+		{
+			ft_lstclear(&res, del);
+			return (NULL);
+		}
+		ft_lstadd_back(&res, tmp);
+		tmp = tmp->next;
+		lst = lst->next;
+	}
+	return (res);
 }
