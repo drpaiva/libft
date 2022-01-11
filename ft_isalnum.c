@@ -6,11 +6,12 @@
 /*   By: dramos-p <dramos-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/22 12:50:37 by dramos-p          #+#    #+#             */
-/*   Updated: 2021/05/22 12:53:55 by dramos-p         ###   ########.fr       */
+/*   Updated: 2022/01/10 21:14:42 by dramos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
 int	ft_isalnum(int c)
 {
 	if (ft_isdigit(c) || ft_isalpha(c))
